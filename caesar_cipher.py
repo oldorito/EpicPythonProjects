@@ -14,9 +14,9 @@ def caesar(user_text, shift_amount, cipher_direction):
             letter_index = alphabet.index(letter)
             new_index = letter_index + shift_amount
 
-            if new_index > len(alphabet):
+            if new_index >= len(alphabet):
                 new_index = (letter_index + shift_amount) % len(alphabet)
-            if new_index < 0:
+            if new_index <= 0:
                 new_index = (letter_index - shift_amount) % len(alphabet)
 
             new_letter = alphabet[new_index]
