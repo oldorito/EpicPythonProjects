@@ -43,6 +43,7 @@ def coin_processing():
 
 
 while machine_turned_on:
+    print("This is Ola's EPIC and TASTY coffee machine!\nIf your coffee tastes like gatorade, well... I don't care.")
     chosen_drink = input("Choose your coffee: espresso/latte/cappuccino\n").lower()
     if chosen_drink == "report":
         print(report())
