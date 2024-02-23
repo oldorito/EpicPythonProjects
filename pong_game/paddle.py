@@ -19,3 +19,6 @@ class Paddle(Turtle):
         if self.ycor() > - 230:
             self.new_y = self.ycor() - 20
             self.goto(self.xcor(), self.new_y)
+
+    def autopilot(self, ball):
+        self.goto(self.xcor(), ball.ycor())

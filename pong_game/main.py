@@ -8,6 +8,7 @@ screen = Screen()
 screen.setup(width=800, height=600)
 screen.bgcolor("DarkSlateGrey")
 screen.title("Ola's Epic Pong")
+game_mode = screen.textinput(title="Game Options", prompt="choose game mode:\nPVP or PVE").lower()
 screen.tracer(0)
 
 paddle_l = Paddle((-350, 0))
@@ -20,14 +21,18 @@ scoreboard = Scoreboard()
 screen.listen()
 screen.onkeypress(paddle_r.up, "Up")
 screen.onkeypress(paddle_r.down, "Down")
-screen.onkeypress(paddle_l.up, "w")
-screen.onkeypress(paddle_l.down, "s")
+if game_mode == "pvp":
+    screen.onkeypress(paddle_l.up, "w")
+    screen.onkeypress(paddle_l.down, "s")
 
 game_on = True
 while game_on:
     time.sleep(ball.moving_speed)
     screen.update()
     ball.move()
+
+    if game_mode == "pve":
+        paddle_l.autopilot(ball)
 
     if ball.ycor() < -280 or ball.ycor() > 280:
         ball.bounce_y()
