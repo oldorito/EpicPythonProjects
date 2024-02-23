@@ -11,7 +11,7 @@ class Scoreboard(Turtle):
         super().__init__()
         self.score = 0
         with open("data.txt") as data:
-            self.highscore = int(data.read())
+            self.high_score = int(data.read())
         self.color("white")
         self.penup()
         self.hideturtle()
