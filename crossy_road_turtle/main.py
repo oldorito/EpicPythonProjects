@@ -6,6 +6,7 @@ from scoreboard import Scoreboard
 
 screen = Screen()
 screen.bgcolor("grey60")
+screen.title("Ola's Turtle Crossroad")
 screen.setup(width=600, height=600)
 screen.tracer(0)
 

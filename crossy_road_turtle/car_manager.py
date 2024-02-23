@@ -25,6 +25,8 @@ class CarManager():
             car.setheading(HEADING)
             start_pos_y = random.randint(-260, 270)
             car.goto(START_POS_X, start_pos_y)
+            if self.check_overlap(car):
+                car.hideturtle()
             self.cars.append(car)
 
     def move_cars(self):
@@ -33,3 +35,9 @@ class CarManager():
 
     def increase_speed(self):
         self.moving_speed *= 0.9
+
+    def check_overlap(self, new_car):
+        for car in self.cars:
+            if new_car.distance(car) < 20:
+                return True
+        return False
